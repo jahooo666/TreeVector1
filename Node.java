@@ -26,26 +26,12 @@ public class Node {
         return right;
     }
 
-    public void insert(int index, double value) {
-        if (this.index == index)
-            this.value = value;
-        else if (index < this.index) {
-            if (this.left != null) {
-                this.left.insert(index, value);
-            } else this.left = new Node(index, value);
-        } else if (index > this.index) {
-            if (this.right != null) {
-                this.right.insert(index, value);
-            } else this.right = new Node(index, value);
-        }
-    }
+
 
     public void print() {
         if (this.right != null)
             this.right.print();
-
         System.out.println(index + "-" + value);
-
         if (this.left != null)
             this.left.print();
     }
@@ -63,6 +49,21 @@ public class Node {
         if (this.left != null)
             this.left.printFormated(level + 1);
     }
+
+    public void insert(int index, double value) {
+        if (this.index == index)
+            this.value = value;
+        else if (index < this.index) {
+            if (this.left != null) {
+                this.left.insert(index, value);
+            } else this.left = new Node(index, value);
+        } else if (index > this.index) {
+            if (this.right != null) {
+                this.right.insert(index, value);
+            } else this.right = new Node(index, value);
+        }
+    }
+
 
     public double get(int index) {
         if (index == this.index) {
